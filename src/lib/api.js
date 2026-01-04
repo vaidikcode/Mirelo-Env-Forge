@@ -1,4 +1,6 @@
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000'
+const API_URL = import.meta.env.MODE === 'production' 
+  ? '' 
+  : 'http://localhost:8000';
 
 export const processVideo = async (videoUrl, userPrompt) => {
   const response = await fetch(`${API_URL}/api/process`, {
